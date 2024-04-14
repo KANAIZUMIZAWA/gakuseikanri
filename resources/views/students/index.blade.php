@@ -6,18 +6,19 @@
     <h2>検索条件で絞り込み</h2>
     <form action="{{ route('students.index') }}" method="GET" class="row g-3">
 
-        <!-- 商品名検索用の入力欄 -->
+        <td>
+            <input type="number" min="1" max="3" name="grade_from"
+                   value="{{isset($validated['grade_from'])?$validated['grade_from']:''}}"/>
+        </td>
         <div class="col-sm-12 col-md-3">
             <input type="text" name="search" class="form-control" placeholder="名前" value="{{ request('search') }}">
         </div>
-        <!-- 絞り込みボタン -->
         <div class="col-sm-12 col-md-1">
             <button class="btn btn-outline-secondary" type="submit">絞り込み</button>
         </div>
     </form>
 </div>
 
-<!-- 検索条件をリセットするためのリンクボタン -->
 <a href="{{ route('students.index') }}" class="btn btn-success mt-3">検索条件を元に戻す</a>
 
 
